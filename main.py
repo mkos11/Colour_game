@@ -1,11 +1,12 @@
 import random
 import tkinter as tk
 from tkinter import messagebox
+#Imports necessary modules: random for shuffling colors, tkinter for creating the GUI, and messagebox for showing information dialogs.
 
 colours = ['Red', 'Blue', 'Green', 'Yellow', 'Orange', 'Purple', 'Pink', 'Black', 'White']
 score = 0
 timeleft = 30
-
+#Initializes a list of colors, sets the initial score to 0, and initializes a timer (timeleft) to 30 seconds.
 def next_colour():
     global score, timeleft
 
@@ -20,6 +21,9 @@ def next_colour():
         random.shuffle(colours)
         label.config(fg=colours[1], text=colours[0])
         score_label.config(text=f"Score: {score}")
+        #Defines a function next_colour that is called when the user enters a color.
+#Checks if there's still time left and compares the user's input to the correct color.
+#If correct, increments the score, clears the entry (e), shuffles colors, and updates the display.
 
 
 def countdown():
@@ -38,7 +42,8 @@ def record_highest_score():
     if score > highest_score:
         with open("highest_score.txt", "w") as file:
             file.write(str(score))
-    
+    #Defines a countdown function that decrements the timer and updates the display every second.
+#Calls scoreshow function when time runs out
 
 
 def load_highest_score():
